@@ -1,10 +1,10 @@
 import React from 'react';
-import TodoItem from './TodoItem';
 import Header from './Header';
 import Footer from './Footer';
+import TodoItem from './TodoItem';
 
 function TodoList(props) {
-    const {title, items, addNew} = props;
+    const {title, items, addNew, filter, changeFilter} = props;
     const count = items.length;
 
     return (
@@ -13,9 +13,8 @@ function TodoList(props) {
             <ul className="list-unstyled">
                 {items.map(item => <TodoItem key={item.id} data={item}/>)}
             </ul>
-            <Footer count={count}/>
+            <Footer {...{count, filter, changeFilter}}/>
         </div>
     );
 }
-
 export default TodoList;
