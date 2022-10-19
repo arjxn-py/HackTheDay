@@ -31,14 +31,16 @@ class App extends Component {
                 <div className="row">
                     <TodoList title={title}
                         addNew={this.addNew.bind(this)}
+                        changeFilter={this.changeFilter.bind(this)}
                         {...this.state}
                     />
                 </div>
             </div>
         );
     }
+
     addNew(text) {
-        let nextId = this.state.items.length + 1
+        let nextId = this.state.items.length + 1;
         let item = {
             id: nextId,
             text: text
@@ -48,5 +50,10 @@ class App extends Component {
             items: updatedList
         })
     }
+
+    changeFilter(filter) {
+        this.setState({filter});
+    }
 }
+
 export default App;
